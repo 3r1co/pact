@@ -28,4 +28,4 @@ When this application starts the following steps will be executed:
 + These unit tests are executed against the API provided by the application
 + The application is up and running
 
-After all you should be able to target http://<hostname>:8555 and use the application.
+After all you should be able to target http://hostname:8555 and use the application.
