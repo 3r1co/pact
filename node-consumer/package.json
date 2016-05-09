@@ -26,6 +26,7 @@
     "pact-mock-service": "^0.7.2-1",
     "q": "^1.4.1",
     "restler": "^3.4.0",
+    "superagent": "^1.8.3",
     "supertest": "^1.2.0"
   }
 }
