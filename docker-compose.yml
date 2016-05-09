@@ -26,7 +26,7 @@ services:
   consumer:
     build: ./node-consumer
     links:
-      - pact_broker:pact_broker
+      - pact_broker
     environment:
       - PACT_BROKER_URL=http://pact_broker/
       - EMPLOYEE_SERVICE=http://producer:8080
@@ -36,7 +36,7 @@ services:
   producer:
     build: ./springboot-producer
     links:
-      - pact_broker:pact_broker
+      - pact_broker
     environment:
       - PACT_BROKER_URL=pact_broker
     expose:
