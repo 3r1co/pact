@@ -1,3 +1,2 @@
 #!/bin/bash
-npm test
-npm start
+npm test && npm start
