@@ -1,0 +1,31 @@
+{
+  "name": "node-consumer",
+  "version": "1.0.0",
+  "description": "A node consumer to demonstrate pacts",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server",
+    "test": "mocha"
+  },
+  "keywords": [
+    "node",
+    "pact",
+    "consumer"
+  ],
+  "author": "Eric Muellenbach",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.10.6"
+  },
+  "devDependencies": {
+    "chai": "3.5.0",
+    "http-status": "^0.2.2",
+    "mocha": "2.4.5",
+    "node-pact-publisher": "0.0.7",
+    "pact-consumer-js-dsl": "0.2.1",
+    "pact-mock-service": "^0.7.2-1",
+    "q": "^1.4.1",
+    "restler": "^3.4.0",
+    "supertest": "^1.2.0"
+  }
+}

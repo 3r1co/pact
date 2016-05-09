@@ -1,0 +1,118 @@
+{
+  "consumer": {
+    "name": "EmployeeFrontEndService"
+  },
+  "provider": {
+    "name": "EmployeeBackEndService"
+  },
+  "interactions": [
+    {
+      "description": "a request for an all employees",
+      "request": {
+        "method": "get",
+        "path": "/getAllEmployees",
+        "headers": {
+          "Accept": "*/*"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "employees": [
+            {
+              "id": "10",
+              "firstName": "James",
+              "lastName": "King",
+              "managerId": "0",
+              "managerName": "CEO",
+              "reports": "0",
+              "title": "Master of Destruction",
+              "department": "RnD",
+              "mobilePhone": "000-000-000",
+              "officePhone": "999-999-999",
+              "email": "e@mail.com",
+              "city": "La Ciotat",
+              "pic": "pizza",
+              "twitterId": "pizza",
+              "blog": "pizza"
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body.employees": {
+            "min": 1
+          },
+          "$.body.employees[*].*": {
+            "match": "type"
+          },
+          "$.body.employees[*].id": {
+            "match": "regex",
+            "regex": "\\d+"
+          },
+          "$.body.employees[*].firstName": {
+            "match": "regex",
+            "regex": ".*"
+          },
+          "$.body.employees[*].lastName": {
+            "match": "regex",
+            "regex": ".*"
+          },
+          "$.body.employees[*].managerId": {
+            "match": "regex",
+            "regex": "\\d+"
+          },
+          "$.body.employees[*].managerName": {
+            "match": "regex",
+            "regex": ".*"
+          },
+          "$.body.employees[*].reports": {
+            "match": "regex",
+            "regex": "\\d+"
+          },
+          "$.body.employees[*].title": {
+            "match": "regex",
+            "regex": ".*"
+          },
+          "$.body.employees[*].department": {
+            "match": "regex",
+            "regex": ".*"
+          },
+          "$.body.employees[*].mobilePhone": {
+            "match": "regex",
+            "regex": ".*"
+          },
+          "$.body.employees[*].officePhone": {
+            "match": "regex",
+            "regex": ".*"
+          },
+          "$.body.employees[*].email": {
+            "match": "regex",
+            "regex": ".*"
+          },
+          "$.body.employees[*].city": {
+            "match": "regex",
+            "regex": ".*"
+          },
+          "$.body.employees[*].pic": {
+            "match": "regex",
+            "regex": ".*"
+          },
+          "$.body.employees[*].twitterId": {
+            "match": "regex",
+            "regex": ".*"
+          },
+          "$.body.employees[*].blog": {
+            "match": "regex",
+            "regex": ".*"
+          }
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecificationVersion": "2.0.0"
+  }
+}

@@ -1,0 +1,41 @@
+pact_db:
+  image: postgres
+  hostname: pact_db
+  expose:
+    - 5432
+  environment:
+    - POSTGRES_PASSWORD=pact_broker
+    - POSTGRES_USER=pact_broker
+
+pact_broker:
+  image: dius/pact_broker
+  hostname: pact_broker
+  links:
+    - pact_db:pact_db
+  environment:
+    - PACT_BROKER_DATABASE_USERNAME=pact_broker
+    - PACT_BROKER_DATABASE_PASSWORD=pact_broker
+    - PACT_BROKER_DATABASE_NAME=pact_broker
+    - PACT_BROKER_DATABASE_HOST=pact_db
+  expose:    
+    - 80
+
+consumer:
+  build: ./node-consumer
+  links:
+    - pact_broker:pact_broker
+    - producer:employees
+  environment:
+    - PACT_BROKER_URL=http://pact_broker/
+    - EMPLOYEE_SERVICE=http://employees:8080
+  ports:
+    - "8555:5000"
+
+producer:
+  build: ./springboot-producer
+  links:
+    - pact_broker:pact_broker
+  environment:
+    - PACT_BROKER_URL=http://pact_broker/
+  expose:
+    - 8080
