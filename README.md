@@ -29,3 +29,7 @@ When this application starts the following steps will be executed:
 + The application is up and running
 
 After all you should be able to target http://hostname:8555 and use the application.
+
+## Remarks
+
+For sure, the way Docker images are built here is not best practice. It is just a simple way to demonstrate how to use Pacts and the Pact Broker.
